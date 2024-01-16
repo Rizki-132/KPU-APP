@@ -4,7 +4,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('admin.update', $data->id) }}">
+                <form method="POST" action="{{ route('admin.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -129,7 +129,14 @@
                                         jpg, png, jpeg )</small></label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="file" id="formFile" name="foto" value="{{ $data->foto }}">
+                                    <br>
+                                    <div class="card" style="width: 10rem;">
+                                        <a href="{{ asset('storage/'. $data->foto) }}">
+                                            <img src="{{ asset('storage/'. $data->foto) }}" class="card-img-top" alt="...">
+                                        </a>
+                                    </div>
                                 </div>
+                              
                             </div>
 
                             <div class="row mb-3">
@@ -138,6 +145,10 @@
                                         )</small></label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="file" id="formFile" name="dokumen" value="{{ $data->dokumen }}">
+                                    <br>
+                                    <div class="col-sm-10">
+                                        <a href="{{ asset('storage/'. $data->dokumen) }}">Lihat PDF</a>
+                                     </div>
                                 </div>
                             </div>
                         </div>

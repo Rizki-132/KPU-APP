@@ -167,8 +167,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-sm-10">
+                            <div class="col-sm-10 d-flex">
                                 <button type="submit" class="btn btn-primary">Kirim Data</button>
+                                <a type="submit" href="{{ route('admin.index') }}" class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>
                     </div>

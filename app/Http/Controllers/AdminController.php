@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         try {
-            //code...
+            //menginput data
                 $data = $request->validate(
                     [
                         'no_kk' => 'required|numeric',
@@ -128,7 +128,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
        try {
-        //code...
+        //untuk meng ubah data
             $data = $request->validate([
 
                 'no_kk' => 'required|numeric',
@@ -173,7 +173,7 @@ class AdminController extends Controller
                     
             return redirect()->route('admin.index')->with('success','Berhasil di ubah');
        } catch (\Throwable $th) {
-        //throw $th;
+        //throw $th; jika tidak di isi
             return redirect()->route('admin.edit')->with('error','Harus Ada yang di Ubah');
        }
     }
@@ -196,16 +196,7 @@ class AdminController extends Controller
         return redirect()->route('admin.index')->with('success','Data berhasil di hapus');
     }
 
-    // public function download($photo)
-    // {
-    //     $data = public_path('/user/photos/' . $photo);
-
-    //     if (file_exists($file)) {
-    //         return response()->download($file);
-    //     } else {
-    //         abort(404, 'File not found');
-    //     }
-    // }
+  
 
     // public function downloadPDF($dokumen)
     // {

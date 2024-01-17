@@ -45,7 +45,7 @@
                                     <a class="btn btn-primary btn-sm" title="Lihat Detail" href="{{ route('admin.show', $pemilih->id) }}">
                                         <i class="bi bi-person-lines-fill"></i>
                                     </a>
-                                    <button type="submit" class="btn btn-danger btn-sm btnDelete"  title="Hapus Data">
+                                    <button type="submit" class="btn btn-danger btn-sm btnDelete" onclick="confirm('Apakah akan Di hapus ?')" title="Hapus Data">
                                         <i class="bi bi-trash-fill"></i>
                                     </button>
                                     <a class="btn btn-warning btn-sm" title="Ubah Data" href="{{ route('admin.edit',$pemilih->id) }}">

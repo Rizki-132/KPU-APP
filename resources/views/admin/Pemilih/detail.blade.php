@@ -72,9 +72,9 @@
                             <div class="row mb-3">
                                 <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Kartu Tanda Penduduk</b></h1>
                                 <div class="card" style="width: 18rem;">
-                                    <a href="{{ asset('storage/'. $data->foto) }}">
-                                        <img src="{{ asset('storage/'. $data->foto) }}" class="card-img-top" alt="...">
-                                    </a>
+                                    <img src="{{ asset('storage/'. $data->foto) }}" class="card-img-top" alt="...">
+                                    <br>
+                                    <a href="{{ asset('storage/'. $data->foto) }}" download>Download</a>
                                 </div>
                             </div>
 

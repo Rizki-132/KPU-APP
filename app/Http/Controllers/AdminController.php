@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pemilih;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 
 class AdminController extends Controller
@@ -16,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = Pemilih::all();
+        $data = Pemilih::paginate(10);
         return view('admin.Pemilih.datapemilih',compact('data'));
     }
 
@@ -197,6 +198,10 @@ class AdminController extends Controller
     }
 
   
+    //pdf generate
+    // public function generatePDF(){
+    //     $data = Pemilih::all();
+    // }
 
     // public function downloadPDF($dokumen)
     // {

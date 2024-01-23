@@ -9,7 +9,7 @@
                     @method('PUT')
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5 class="card-title">FORM BIODATA</h5>
+                            <h5 class="card-title">FORM UBAH DATA</h5>
                             <!-- General Form Elements -->
                             <div class="row mb-3">
                                 <label for="inputText" class="col-sm-2 col-form-label">Nomor KK <br><small><i>(Nomor Kartu

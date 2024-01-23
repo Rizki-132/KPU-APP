@@ -87,10 +87,10 @@ class AdminController extends Controller
                 }
                 // dd($data);
                 Pemilih::create($data);
-                return redirect()->route('admin.index')->with('success','Data berhasil di kirim');
+                return redirect()->route('admin.index')->with('success','Data Berhasil Di Kirim');
         } catch (\Throwable $th) {
             //throw $th;
-            return redirect()->route('admin.create')->with('error','Data Harus Disi');
+            return redirect()->route('admin.create')->with('error','Gagal Mengirim Data');
         }
        
     }
@@ -199,9 +199,12 @@ class AdminController extends Controller
 
   
     //pdf generate
-    // public function generatePDF(){
-    //     $data = Pemilih::all();
-    // }
+    public function generatePDF(){
+        $data = Pemilih::all();
+
+        $pdf = PDF::loadView('admin.Pemilih.generatePDF',compact('data'));
+        return $pdf->stream('laporan_pemilih.pdf');
+    }
 
     // public function downloadPDF($dokumen)
     // {

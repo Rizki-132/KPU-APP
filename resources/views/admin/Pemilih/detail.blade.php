@@ -7,7 +7,7 @@
                 <form method="#" action="#">
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5 class="card-title">FORM BIODATA</h5>
+                            <h5 class="card-title">BODATA</h5>
                             <!-- General Form Elements -->
                             <div class="row mb-3">
                                 <h1 class="col-sm-2 col-form-label"><b>NOMOR KK</b></h1>

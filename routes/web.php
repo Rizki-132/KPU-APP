@@ -26,8 +26,8 @@ Auth::routes();
 // Route::middleware(['auth', 'CheckRole:admin'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin', AdminController::class);
-    // tambahkan rute lain yang hanya dapat diakses oleh pengguna biasa
-    Route::get('generate-pdf',[AdminController::class,'generatePDF']);
+    Route::get('generate-pdf',[AdminController::class,'generatePDF'])->name('generate-pdf');
+
 });
 Route::middleware(['auth', 'user'])->group(function () {
     Route::resource('pemilih', PemilihController::class);

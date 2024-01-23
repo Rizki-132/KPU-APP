@@ -202,7 +202,7 @@ class AdminController extends Controller
     public function generatePDF(){
         $data = Pemilih::all();
 
-        $pdf = PDF::loadView('admin.Pemilih.generatePDF',compact('data'));
+        $pdf = PDF::loadView('admin.Pemilih.generatePDF',compact('data'))->setPaper('a4', 'landscape');
         return $pdf->stream('laporan_pemilih.pdf');
     }
 

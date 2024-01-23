@@ -14,12 +14,24 @@
     <style>
         table {
             font-family: Arial, sans-serif;
-            font-size: 8px;
+            font-size: 12px;
             border-collapse: collapse;
             width: 100%;
         }
 
-        th,
+        h1,
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
         td {
             border: 1px solid #dddddd;
             text-align: left;
@@ -38,6 +50,12 @@
 </head>
 
 <body>
+    <div class="content">
+        {{-- <img src="{{ url('assets/img/logo.png') }}" alt=""> --}}
+        <h1 class="text-center"> <b>Panitia Pemungutan Suara Desa Kodasari</b></h1>
+        <h2 class="text-center">Tabel Laporan Data Pemilih</h2>
+    </div>
+    <br>
     <table class="table" style="width:100%, high:100%">
         <thead style="text-align: center">
             <tr>
@@ -50,7 +68,7 @@
                 <th scope="col">Tempat Lahir</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Status</th>
-                <th scope="col">Alasan</th>
+                <th scope="col">Keterangan</th>
             </tr>
         </thead>
         <tbody>

@@ -51,7 +51,10 @@
 
 <body>
     <div class="content">
-        {{-- <img src="{{ url('assets/img/logo.png') }}" alt=""> --}}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ public_path('asset/img/Panitia.png') }}" class="card-img-top" alt="logo">
+            <br>
+        </div>
         <h1 class="text-center"> <b>Panitia Pemungutan Suara Desa Kodasari</b></h1>
         <h2 class="text-center">Tabel Laporan Data Pemilih</h2>
     </div>

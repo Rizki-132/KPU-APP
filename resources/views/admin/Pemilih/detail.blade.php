@@ -19,7 +19,7 @@
                             <div class="row mb-3">
                                 <h1 class="col-sm-2 col-form-label"><b>NIK</b></h1>
                                 <div class="col-sm-10">
-                                   <h6>: {{ $data->nik }}</h6>
+                                    <h6>: {{ $data->nik }}</h6>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -72,22 +72,23 @@
                             <div class="row mb-3">
                                 <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Kartu Tanda Penduduk</b></h1>
                                 <div class="card" style="width: 18rem;">
-                                    <img src="{{ asset('storage/'. $data->foto) }}" class="card-img-top" alt="...">
+                                    <img src="{{ asset('storage/' . $data->foto) }}" class="card-img-top" alt="...">
                                     <br>
-                                    <a href="{{ asset('storage/'. $data->foto) }}" download>Download</a>
+                                    <a href="{{ asset('storage/' . $data->foto) }}" download>Download</a>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Kartu Keluarga</b></h1>
+                                <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Dokumen Lainnya</b></h1>
                                 <div class="col-sm-10">
-                                   <a href="{{ asset('storage/'. $data->dokumen) }}">Download PDF</a>
+                                    <a href="{{ asset('storage/' . $data->dokumen) }}">Download PDF</a>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-10 d-flex">
-                                <a type="submit" href="{{ route('admin.index') }}" class="btn btn-warning mx-1">Kembali</a>
+                                <a type="submit" href="{{ route('admin.index') }}"
+                                    class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>
                     </div>

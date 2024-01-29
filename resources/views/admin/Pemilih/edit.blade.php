@@ -65,11 +65,19 @@
                                 <div class="col-sm-10">
                                     <select class="form-select" aria-label="Default select example" name="keterangan">
                                         <option disabled>--- Pilih Keterangan ---</option>
-                                        <option value="Tidak Terdaftar Di DPT" {{ $data->keterangan == 'Tidak Terdaftar Di DPT' ? 'selected' : '' }}>Tidak Terdaftar Di DPT</option>
-                                        <option value="Ubah Status" {{ $data->keterangan == 'Ubah Status' ? 'selected' : '' }}>Ubah Status</option>
-                                        <option value="Pindah Domisili" {{ $data->keterangan == 'Pindah Domisili' ? 'selected' : '' }}>Pindah Domisili</option>
-                                        <option value="Ubah KK" {{ $data->keterangan == 'Ubah KK' ? 'selected' : '' }}>Ubah KK</option>
-                                        <option value="Pemilih Baru" {{ $data->keterangan == 'Pemilih Baru' ? 'selected' : '' }}>Pemilih Baru</option>
+                                        <option value="Tidak Terdaftar Di DPT"
+                                            {{ $data->keterangan == 'Tidak Terdaftar Di DPT' ? 'selected' : '' }}>Tidak
+                                            Terdaftar Di DPT</option>
+                                        <option value="Ubah Status"
+                                            {{ $data->keterangan == 'Ubah Status' ? 'selected' : '' }}>Ubah Status</option>
+                                        <option value="Pindah Domisili"
+                                            {{ $data->keterangan == 'Pindah Domisili' ? 'selected' : '' }}>Pindah Domisili
+                                        </option>
+                                        <option value="Ubah KK" {{ $data->keterangan == 'Ubah KK' ? 'selected' : '' }}>Ubah
+                                            KK</option>
+                                        <option value="Pemilih Baru"
+                                            {{ $data->keterangan == 'Pemilih Baru' ? 'selected' : '' }}>Pemilih Baru
+                                        </option>
                                     </select>
                                 </div>
                                 @error('keterangan')
@@ -84,13 +92,15 @@
                             <div class="row mb-5">
                                 <label for="inputNumber" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="tmp_lahir" value="{{ $data->tmp_lahir }}">
+                                    <input type="text" class="form-control" name="tmp_lahir"
+                                        value="{{ $data->tmp_lahir }}">
                                 </div>
                             </div>
                             <div class="row mb-5">
                                 <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" name="tgl_lahir" value="{{ $data->tgl_lahir }}">
+                                    <input type="date" class="form-control" name="tgl_lahir"
+                                        value="{{ $data->tgl_lahir }}">
                                 </div>
                             </div>
                             <fieldset class="row mb-5">
@@ -116,7 +126,7 @@
                                 <div class="col-sm-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="status" id="gridRadios1"
-                                            value="Pernah Kawin"  {{ $data->status == 'Pernah Kawin' ? 'checked' : '' }}>
+                                            value="Pernah Kawin" {{ $data->status == 'Pernah Kawin' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="gridRadios1">
                                             Pernah Menikah
                                         </label>
@@ -128,34 +138,39 @@
                                         (
                                         jpg, png, jpeg )</small></label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" name="foto" value="{{ $data->foto }}">
+                                    <input class="form-control" type="file" id="formFile" name="foto"
+                                        value="{{ $data->foto }}">
                                     <br>
                                     <div class="card" style="width: 10rem;">
-                                        <a href="{{ asset('storage/'. $data->foto) }}">
-                                            <img src="{{ asset('storage/'. $data->foto) }}" class="card-img-top" alt="...">
+                                        <a href="{{ asset('storage/' . $data->foto) }}">
+                                            <img src="{{ asset('storage/' . $data->foto) }}" class="card-img-top"
+                                                alt="...">
                                         </a>
                                     </div>
                                 </div>
-                              
+
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Upload KK <br><small>fromat (
+                                <label for="inputNumber" class="col-sm-2 col-form-label">Upload Dokumen Lainnya
+                                    <br><small>fromat (
                                         PDF
                                         )</small></label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file" id="formFile" name="dokumen" value="{{ $data->dokumen }}">
+                                    <input class="form-control" type="file" id="formFile" name="dokumen"
+                                        value="{{ $data->dokumen }}">
                                     <br>
                                     <div class="col-sm-10">
-                                        <a href="{{ asset('storage/'. $data->dokumen) }}">Lihat PDF</a>
-                                     </div>
+                                        <a href="{{ asset('storage/' . $data->dokumen) }}">Lihat PDF</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-10 d-flex">
                                 <button type="submit" class="btn btn-primary mx-1">Ubah Data</button>
-                                <a type="submit" href="{{ route('admin.index') }}" class="btn btn-warning mx-1">Kembali</a>
+                                <a type="submit" href="{{ route('admin.index') }}"
+                                    class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>
                     </div>

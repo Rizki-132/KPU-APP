@@ -11,7 +11,8 @@
                             <h5 class="card-title">FORM BIODATA</h5>
                             <!-- General Form Elements -->
                             <div class="row mb-3">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Nomor KK <br><small><i>(Nomor Kartu Keluarga)</i></small></label>
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Nomor KK <br><small><i>(Nomor
+                                            Kartu Keluarga)</i></small></label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="no_kk">
                                 </div>
@@ -20,7 +21,8 @@
                                 @enderror
                             </div>
                             <div class="row mb-3">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">NIK <br><small><i>(Nomor Induk Keluarga)</i></small></label>
+                                <label for="inputPassword" class="col-sm-2 col-form-label">NIK <br><small><i>(Nomor Induk
+                                            Keluarga)</i></small></label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name="nik">
                                 </div>
@@ -155,7 +157,8 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Upload KK <br><small>fromat (
+                                <label for="inputNumber" class="col-sm-2 col-form-label">Upload Dokumen lainnya
+                                    <br><small>fromat (
                                         PDF
                                         )</small></label>
                                 <div class="col-sm-10">
@@ -169,7 +172,8 @@
                         <div class="row mb-3">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Kirim Data</button>
-                                <a type="submit" href="{{ route('pemilih.index') }}" class="btn btn-warning mx-1">Kembali</a>
+                                <a type="submit" href="{{ route('pemilih.index') }}"
+                                    class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>
                     </div>

@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Dokumen Lainnya</b></h1>
+                                <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Kartu Keluarga</b></h1>
                                 <div class="col-sm-10">
                                     <a href="{{ asset('storage/' . $data->dokumen) }}">Download PDF</a>
                                 </div>

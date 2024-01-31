@@ -157,7 +157,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="inputNumber" class="col-sm-2 col-form-label">Upload Dokumen Lainnya
+                                <label for="inputNumber" class="col-sm-2 col-form-label">Kartu Keluarga
                                     <br><small>fromat (
                                         PDF
                                         )</small></label>

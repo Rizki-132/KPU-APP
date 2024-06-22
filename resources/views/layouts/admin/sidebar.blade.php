@@ -3,9 +3,9 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="/dashboard">
+            <a class="nav-link collapsed {{ request()->is('dashboard') ? 'active fw-bold' : ' ' }}" href="/dashboard">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                Dashboard
             </a>
         </li><!-- End Dashboard Nav -->
 
@@ -17,24 +17,23 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 @can('admin')
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Data Alamat</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Data Kematian</span>
+                    <li class="">
+                        <a class="nav-link {{ request()->is('kematian*') ? 'active fw-bold' : ' ' }}"
+                            href="{{ route('kematian.index') }}">
+                            <i class="bi bi-circle"></i><span>Data
+                                Kematian</span>
                         </a>
                     </li>
                 @endcan
                 <li>
                     @can('admin')
-                        <a href="{{ route('admin.index') }}">
+                        <a class="nav-link {{ request()->is('admin*') ? 'active fw-bold' : ' ' }}"
+                            href="{{ route('admin.index') }}">
                             <i class="bi bi-circle"></i><span>Data Pemilih</span>
                         </a>
                     @elsecan('user')
-                        <a href="{{ route('pengguna.create') }}">
+                        <a class="nav-link {{ request()->is('pengguna*') ? 'active fw-bold' : ' ' }}"
+                            href="{{ route('pengguna.create') }}">
                             <i class="bi bi-circle"></i><span>Data Pemilih</span>
                         </a>
                     @endcan

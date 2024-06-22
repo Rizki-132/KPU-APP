@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kematian extends Model
 {
     use HasFactory;
+    protected $table = 'kematians';
     protected $guarded = ['id'];
 
 }

@@ -8,14 +8,14 @@
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">
-                            <h5 class="card-title">FORM BIODATA</h5>
+                            <h5 class="card-title">FORM DATA MENINGGAL</h5>
                             <!-- General Form Elements -->
                             <div class="row mb-5">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
+                                <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama">
+                                    <input type="text" class="form-control" name="name">
                                 </div>
-                                @error('nama')
+                                @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -52,12 +52,36 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </fieldset>
-                            <div class="row mb-3">
+                            <div class="row mb-5">
+                                <label for="inputDate" class="col-sm-2 col-form-label">Tanggal Kematian</label>
                                 <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Kirim Data</button>
+                                    <input type="date" class="form-control" name="tgl_kematian">
                                 </div>
+                                @error('tgl_kematian')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputDokumen" class="col-sm-2 col-form-label">Akta Kematian
+                                    <br><small>fromat (
+                                        PDF
+                                        )</small></label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file" id="formFile" name="dokumen">
+                                </div>
+                                @error('dokumen')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-10 d-flex">
+                                <button type="submit" class="btn btn-primary">Kirim Data</button>
+                                <a type="submit" href="{{ route('kematian.index') }}"
+                                    class="btn btn-warning mx-1">Kembali</a>
+                            </div>
+                        </div>
+                    </div>
                 </form><!-- End General Form Elements -->
             </div>
         </div>

@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kematians', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('alamat');
-            $table->string('gender');
-            $table->date('tgl_kematian');
-            $table->timestamps();
+        Schema::table('kematians', function (Blueprint $table) {
+            $table->string('dokumen')->nullable();
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kematians');
+        Schema::table('kematians', function (Blueprint $table) {
+            $table->dropColulmn('dokumen');
+        });
     }
 };

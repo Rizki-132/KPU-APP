@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengguna;
+use App\Models\Pemilih;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -83,7 +83,7 @@ class PenggunaController extends Controller
         $data['user_id'] = auth()->user()->id;
         // dd($data);
         Pemilih::create($data);
-        return redirect()->route('pemilih.index')->with('success','Data berhasil di kirim');
+        return redirect()->route('pengguna.index')->with('success','Data berhasil di kirim');
     }
 
     /**

@@ -104,7 +104,7 @@ class AdminController extends Controller
     public function show($id)
     {
         $data = Pemilih::find($id);
-        return view('admin.Pemilih.detail',compact('data'));
+        return view('admin.Admin.detail',compact('data'));
     }
 
     /**
@@ -116,7 +116,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $data = Pemilih::find($id);
-        return view('admin.Pemilih.edit',compact('data'));
+        return view('admin.Admin.edit',compact('data'));
     }
 
     /**
@@ -215,7 +215,7 @@ class AdminController extends Controller
             'image' => $imagePath,
         ];
 
-        $pdf = PDF::loadView('admin.Pemilih.generatePDF', $pdfdata)->setPaper('a4', 'landscape');
+        $pdf = PDF::loadView('admin.Admin.generatePDF', $pdfdata)->setPaper('a4', 'landscape');
         return $pdf->stream('laporan_pemilih.pdf');
     }
 

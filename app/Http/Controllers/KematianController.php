@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kematian;
+use Illuminate\Support\Facades\Storage;
 
 class KematianController extends Controller
 {
@@ -13,7 +15,8 @@ class KematianController extends Controller
      */
     public function index()
     {
-        //
+        $data = Kematian::all();
+        return view('kematian.info',compact('data'));
     }
 
     /**
@@ -34,7 +37,38 @@ class KematianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            //Menginput Data
+            $data = $request->validate(
+            [
+                'name' => 'required|string',
+                'alamat' => 'required|string',
+                'gender' => 'required|string',
+                'tgl_kematian' => 'required|date',
+                'dokumen' => 'nullable|mimes:pdf|max:2048',
+            ],
+            [
+                'name' => 'Masukan Nama',
+                'alamat' => 'Masukan Alamat',
+                'gender' => 'Masukan Jenis Kelamin',
+                'tgl_kematian' => 'Masukan Tanggal Kematian',
+                'dokumen' => 'harus di isi max 2MB',
+
+            ]);
+
+            //upload dokumen
+            if ($request->hasFile('dokumen')) {
+                $document = $request->file('dokumen');
+                $data['dokumen'] = $document->store('kematian/dokumen', 'public'); // Simpan dokumen dalam folder 'documents' di disk 'public'
+            }
+            // dd($data);
+            Kematian::create($data);
+            return redirect()->route('kematian.index')->with('success','Data Berhasil Di Kirim');
+        }catch (\Throwable $th){
+            return redirect()->route('kematian.create')->with('error','Gagal Mengirim Data');
+
+        }
+    
     }
 
     /**
@@ -45,7 +79,8 @@ class KematianController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Kematian::find($id);
+        return view('kematian.detail',compact('data'));
     }
 
     /**
@@ -79,6 +114,12 @@ class KematianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Kematian::findOrFail($id);
+        if ($data->foto && $data->dokumen) {
+            Storage::delete($data->dokumen);
+        }
+        $data->delete();
+
+        return redirect()->route('.index')->with('success','Data berhasil di hapus');
     }
 }

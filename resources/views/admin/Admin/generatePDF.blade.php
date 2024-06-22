@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         table {
             font-family: Arial, sans-serif;
@@ -52,21 +49,63 @@
             font-size: 11px;
         }
 
-        img {
-            margin-top: 50px;
-            padding-left: 120px;
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Menyelaraskan konten secara horizontal */
+            flex-wrap: wrap;
+            /* Membuat elemen teks dapat membungkus di bawah gambar jika diperlukan */
+            text-align: center;
+        }
+
+        .container img {
+            margin-right: 20px;
+            /* Jarak antara gambar dan teks */
+            max-width: 50px;
+            /* Ukuran maksimum gambar */
+            height: auto;
+        }
+
+        .text {
+            flex: 1;
+            margin: 0;
+        }
+
+        .text h1,
+        .text h2,
+        .text h3 {
+            margin: 0;
+        }
+
+        .text h3 {
+            margin: 0;
+            padding-bottom: 10px;
+            /* Spasi di bawah h3 */
+            position: relative;
+            /* Memastikan posisi relatif */
+        }
+
+        .text h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            /* Warna garis horizontal */
         }
     </style>
 </head>
 
 <body>
-    <div class="content d-flex">
-        <img src="{{ $image }}" alt="Gambar" style="width:50px;height:auto;">
-        <h1 class="text-center"> <b>Panitia Pemungutan Suara Desa Kodasari</b></h1>
-        <h2 class="text-center">Tabel Laporan Data Pemilih</h2>
-        <h3 class="text-center">Jl. Hanjuang No.39, Kodasari, Kec. Ligung, Kabupaten Majalengka, Jawa Barat 45456</h3>
+    <div class="container">
+        <img class="img" src="{{ $image }}" alt="Gambar" style="width:50px; height:auto;">
+        <h1 class="text"><b>Panitia Pemungutan Suara Desa Kodasari</b></h1>
+        <h2 class="text">Tabel Laporan Data Pemilih</h2>
+        <h3 class="text">Jl. Hanjuang No.39, Kodasari, Kec. Ligung, Kabupaten Majalengka, Jawa Barat 45456</h3>
     </div>
-    <br>
     <table class="table" style="width:100%, high:100%">
         <thead style="text-align: center">
             <tr>

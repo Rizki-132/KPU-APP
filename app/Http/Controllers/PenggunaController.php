@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemilih;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PemilihController extends Controller
+class PenggunaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -80,6 +80,7 @@ class PemilihController extends Controller
             $document = $request->file('dokumen');
             $data['dokumen'] = $document->store('user/dokumen', 'public'); // Simpan dokumen dalam folder 'documents' di disk 'public'
         }
+        $data['user_id'] = auth()->user()->id;
         // dd($data);
         Pemilih::create($data);
         return redirect()->route('pemilih.index')->with('success','Data berhasil di kirim');

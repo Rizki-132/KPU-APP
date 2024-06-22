@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function index()
     {
         $data = Pemilih::paginate(10);
-        return view('admin.Pemilih.datapemilih',compact('data'));
+        return view('admin.Admin.datapemilih',compact('data'));
     }
 
     /**
@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function create()
     {
        
-        return view('admin.Pemilih.create');
+        return view('admin.Admin.create');
     }
 
     /**
@@ -201,8 +201,21 @@ class AdminController extends Controller
     //pdf generate
     public function generatePDF(){
         $data = Pemilih::all();
+        
+        $imagePath = public_path('assets/Panitia.png'); // Sesuaikan dengan nama gambar Anda
+        
+        if (!file_exists($imagePath)) {
+            return "File not found.";
+        }
+      
 
-        $pdf = PDF::loadView('admin.Pemilih.generatePDF',compact('data'))->setPaper('a4', 'landscape');
+        $pdfdata = [
+            'title' => 'PPS Desa Kodasari',
+            'data' => $data,
+            'image' => $imagePath,
+        ];
+
+        $pdf = PDF::loadView('admin.Pemilih.generatePDF', $pdfdata)->setPaper('a4', 'landscape');
         return $pdf->stream('laporan_pemilih.pdf');
     }
 

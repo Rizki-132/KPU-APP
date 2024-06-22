@@ -30,13 +30,13 @@
                 @endcan
                 <li>
                     @can('admin')
-                            <a href="{{ route('admin.index') }}">
-                                <i class="bi bi-circle"></i><span>Data Pemilih</span>
-                            </a>
-                        @elsecan('user')
-                            <a href="{{ route('pemilih.create') }}">
-                                <i class="bi bi-circle"></i><span>Data Pemilih</span>
-                            </a>
+                        <a href="{{ route('admin.index') }}">
+                            <i class="bi bi-circle"></i><span>Data Pemilih</span>
+                        </a>
+                    @elsecan('user')
+                        <a href="{{ route('pengguna.create') }}">
+                            <i class="bi bi-circle"></i><span>Data Pemilih</span>
+                        </a>
                     @endcan
                 </li>
                 @can('admin')
@@ -49,7 +49,7 @@
             </ul>
         </li><!-- End Forms Nav -->
 
-       <!-- End Tables Nav -->
+        <!-- End Tables Nav -->
 
         <!-- End Charts Nav -->
         <!-- End Icons Nav -->

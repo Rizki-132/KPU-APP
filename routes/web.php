@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonController;
-use App\Http\Controllers\PemilihController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -30,7 +30,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 });
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::resource('pemilih', PemilihController::class);
+    Route::resource('pengguna', PenggunaController::class);
     // tambahkan rute lain yang hanya dapat diakses oleh pengguna biasa
 });
 // Route::resource('pemilih', PemilihController::class)->middleware('auth');

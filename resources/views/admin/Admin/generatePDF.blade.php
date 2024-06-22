@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>{{ $title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -20,10 +20,15 @@
         }
 
         h1,
-        h2 {
+        h2,
+        h3 {
             font-family: Arial, sans-serif;
-            font-size: 12px;
+            font-size: 14px;
             width: 100%;
+        }
+
+        h3 {
+            padding-bottom: 25px;
         }
 
         th {
@@ -46,17 +51,20 @@
         table td p {
             font-size: 11px;
         }
+
+        img {
+            margin-top: 50px;
+            padding-left: 120px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="content">
-        <div class="card" style="width: 18rem;">
-            <img src="{{ public_path('asset/img/Panitia.png') }}" class="card-img-top" alt="logo">
-            <br>
-        </div>
+    <div class="content d-flex">
+        <img src="{{ $image }}" alt="Gambar" style="width:50px;height:auto;">
         <h1 class="text-center"> <b>Panitia Pemungutan Suara Desa Kodasari</b></h1>
         <h2 class="text-center">Tabel Laporan Data Pemilih</h2>
+        <h3 class="text-center">Jl. Hanjuang No.39, Kodasari, Kec. Ligung, Kabupaten Majalengka, Jawa Barat 45456</h3>
     </div>
     <br>
     <table class="table" style="width:100%, high:100%">

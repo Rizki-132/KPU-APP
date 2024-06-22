@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('pemilihs', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
             $table->string('no_kk');
             $table->string('nik')->unique();
             $table->string('nama');

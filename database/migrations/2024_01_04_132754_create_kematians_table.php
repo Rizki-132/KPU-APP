@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('kematians', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pemilihs_id');
-            $table->foreign('pemilihs_id')->references('id')->on('pemilihs')->onDelete('cascade');
+            $table->string('name');
             $table->string('gender');
+            $table->text('alamat');
             $table->date('tanggal_kematian');
             $table->timestamps();
         });

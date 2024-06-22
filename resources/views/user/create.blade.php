@@ -4,7 +4,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('pemilih.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('pengguna.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6">
@@ -172,7 +172,7 @@
                         <div class="row mb-3">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Kirim Data</button>
-                                <a type="submit" href="{{ route('pemilih.index') }}"
+                                <a type="submit" href="{{ route('pengguna.index') }}"
                                     class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>

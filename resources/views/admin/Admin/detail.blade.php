@@ -81,7 +81,8 @@
                             <div class="row mb-3">
                                 <h1 for="inputNumber" class="col-sm-2 col-form-label"><b>Kartu Keluarga</b></h1>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('storage/' . $data->dokumen) }}">Download PDF</a>
+                                    <iframe src="{{ asset('storage/' . $data->dokumen) }}" frameborder="0" height="500"
+                                        width="600"></iframe>
                                 </div>
                             </div>
                         </div>

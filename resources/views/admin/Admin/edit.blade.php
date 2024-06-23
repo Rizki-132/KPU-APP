@@ -161,7 +161,8 @@
                                         value="{{ $data->dokumen }}">
                                     <br>
                                     <div class="col-sm-10">
-                                        <a href="{{ asset('storage/' . $data->dokumen) }}">Lihat PDF</a>
+                                        <iframe src="{{ asset('storage/' . $data->dokumen) }}" frameborder="0"
+                                            height="500" width="600"></iframe>
                                     </div>
                                 </div>
                             </div>

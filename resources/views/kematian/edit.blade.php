@@ -6,6 +6,7 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('kematian.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-lg-6">
                             <h5 class="card-title">FORM DATA MENINGGAL</h5>
@@ -72,7 +73,8 @@
                                         value="{{ $data->dokumen }}">
                                 </div>
                                 <div class="col-sm-10">
-                                    <a href="{{ asset('storage/' . $data->dokumen) }}">Lihat PDF</a>
+                                    <iframe src="{{ asset('storage/' . $data->dokumen) }}" frameborder="0" height="500"
+                                        width="900"></iframe>
                                 </div>
                                 @error('dokumen')
                                     <div class="alert alert-danger">{{ $message }}</div>

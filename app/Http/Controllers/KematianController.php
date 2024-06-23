@@ -135,7 +135,8 @@ class KematianController extends Controller
                 // $data->foto = $photos;
             }
             // dd($data);
-            Kematian::create($data);
+            Kematian::where('id',$id)->update($data);
+            
             return redirect()->route('kematian.index')->with('success','Data Berhasil Di Kirim');
         }catch (\Throwable $th){
             return redirect()->route('kematian.create')->with('error','Gagal Mengirim Data');

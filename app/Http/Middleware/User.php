@@ -16,10 +16,11 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->guest() || auth()->user()->role !== 'user') {
-            abort(403, 'Unauthorized action.');
+        if (auth()->user()->role == 'user' || auth()->user()->role == 'pamong') {
+            return $next($request);
         }
-        return $next($request);
+        abort(403, 'Unauthorized action.');
+        
         // return $next($request);
     }
 }

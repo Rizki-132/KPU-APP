@@ -44,7 +44,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-sm-10 d-flex">
-                                <a type="submit" href="{{ route('kematian.index') }}"
+                                <a type="submit" href="{{ route('admin2.index') }}"
                                     class="btn btn-warning mx-1">Kembali</a>
                             </div>
                         </div>

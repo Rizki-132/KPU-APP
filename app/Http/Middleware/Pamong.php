@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Admin
+class Pamong
 {
     /**
      * Handle an incoming request.
@@ -16,14 +16,11 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        // if (!$request->user() || $request->user()->role !== $role) {
-        //     abort(403, 'Unauthorized action.');
-        // }
-        // return $next($request);
-        if (auth()->guest() || auth()->user()->role != 'admin') {
-            abort(403, 'Unauthorized action.');
+        if (auth()->user()->role == 'pamong' || auth()->user()->role == 'admin') {
+            return $next($request);
         }
-        return $next($request);
-      
+        abort(403, 'Unauthorized action.');
+        
+        // return $next($request);
     }
 }

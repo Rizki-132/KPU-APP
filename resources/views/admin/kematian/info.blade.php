@@ -8,12 +8,10 @@
                 <h5 class="card-title">Tabel Data Meninggal</h5>
                 <div class="row mb-3">
                     <div class="col-sm-10">
-                        <a class="btn btn-primary" href="{{ route('kematian.create') }}" title="Tambah Data"><i
+                        <a class="btn btn-primary" href="{{ route('admin2.create') }}" title="Tambah Data"><i
                                 class="bi bi-person-plus-fill"></i></a>
-                        @can('admin')
-                            <a class="btn btn-danger" href="{{ route('cetakPDF') }}" target="_blank" title="Export PDF"><i
-                                    class="bi bi-filetype-pdf"></i></a>
-                        @endcan
+                        <a class="btn btn-danger" href="{{ route('cetakPDF') }}" target="_blank" title="Export PDF"><i
+                                class="bi bi-filetype-pdf"></i></a>
                     </div>
                 </div>
                 @php
@@ -41,12 +39,11 @@
                                 <td>{{ $item->gender }}</td>
                                 <td>{{ $item->tgl_kematian }}</td>
                                 <td>
-                                    <form method="POST" id="formDelete"
-                                        action="{{ route('kematian.destroy', $item->id) }}">
+                                    <form method="POST" id="formDelete" action="{{ route('admin2.destroy', $item->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <a class="btn btn-primary btn-sm" title="Lihat Detail"
-                                            href="{{ route('kematian.show', $item->id) }}">
+                                            href="{{ route('admin2.show', $item->id) }}">
                                             <i class="bi bi-person-lines-fill"></i>
                                         </a>
                                         <button type="submit"
@@ -56,7 +53,7 @@
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
                                         <a class="btn btn-warning btn-sm" title="Ubah Alamat"
-                                            href="{{ route('kematian.edit', $item->id) }}">
+                                            href="{{ route('admin2.edit', $item->id) }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                     </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kematian;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class KematianController extends Controller
 {
@@ -130,7 +131,7 @@ class KematianController extends Controller
                     Storage::delete($request->dokumen);
                 }
                 $dokumen = $request->file('dokumen');
-                $data['dokumen'] = $dokumen->store('user/dokumen', 'public'); // Simpan foto dalam folder 'photos' di disk 'public'
+                $data['dokumen'] = $dokumen->store('kematian/dokumen', 'public'); // Simpan foto dalam folder 'photos' di disk 'public'
 
                 // $data->foto = $photos;
             }
@@ -158,6 +159,26 @@ class KematianController extends Controller
         }
         $data->delete();
 
-        return redirect()->route('.index')->with('success','Data berhasil di hapus');
+        return redirect()->route('kematian.index')->with('success','Data berhasil di hapus');
     }
+    public function cetakPDF(){
+        $data = Kematian::all();
+        
+        $imagePath = public_path('assets/Panitia.png'); // Sesuaikan dengan nama gambar Anda
+        
+        if (!file_exists($imagePath)) {
+            return "File not found.";
+        }
+      
+
+        $pdfdata = [
+            'title' => 'PPS Desa Kodasari',
+            'data' => $data,
+            'image' => $imagePath,
+        ];
+
+        $pdf = PDF::loadView('kematian.cetakPDF', $pdfdata)->setPaper('a4', 'Potrait');
+        return $pdf->stream('laporan_kematian.pdf');
+    }
+    
 }

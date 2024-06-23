@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 use App\Policies\PemilihPolicy;
+use App\Policies\KematianPolicy;
 use App\Models\Pemilih;
+use App\Models\Kematian;
 
 
 
@@ -17,7 +19,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        Pemilih::class => PemilihPolicy::class
+        Pemilih::class => PemilihPolicy::class,
+       
     ];
 
     /**

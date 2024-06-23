@@ -28,15 +28,20 @@ Auth::routes();
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin', AdminController::class);
     Route::resource('kematian', KematianController::class);
+    Route::get('cetakPDF',[KematianController::class,'cetakPDF'])->name('cetakPDF');
     Route::get('generate-pdf',[AdminController::class,'generatePDF'])->name('generate-pdf');
-
 });
-Route::middleware(['auth', 'user','admin'])->group(function () {
+Route::middleware(['auth', 'pamong'])->group(function () {
+    Route::resource('kematian', KematianController::class);
+    Route::resource('pengguna', PenggunaController::class);
+
+    // tambahkan rute lain yang hanya dapat diakses oleh pengguna biasa
+});
+Route::middleware(['auth', 'user'])->group(function () {
     Route::resource('pengguna', PenggunaController::class);
     // tambahkan rute lain yang hanya dapat diakses oleh pengguna biasa
 });
-// Route::resource('pemilih', PemilihController::class)->middleware('auth');
-// Route::resource('kematian', PersonController::class)->middleware('auth');
+
 
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

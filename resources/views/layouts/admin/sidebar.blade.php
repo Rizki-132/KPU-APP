@@ -16,15 +16,21 @@
                 <i class="bi bi-journal-text"></i><span>Menu</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                @can('admin')
-                    <li class="">
+                <li>
+                    @can('admin')
                         <a class="nav-link {{ request()->is('kematian*') ? 'active fw-bold' : ' ' }}"
                             href="{{ route('kematian.index') }}">
                             <i class="bi bi-circle"></i><span>Data
                                 Kematian</span>
                         </a>
-                    </li>
-                @endcan
+                    @elsecan('pamong')
+                        <a class="nav-link {{ request()->is('kematian*') ? 'active fw-bold' : ' ' }}"
+                            href="{{ route('kematian.index') }}">
+                            <i class="bi bi-circle"></i><span>Data
+                                Kematian</span>
+                        </a>
+                    @endcan
+                </li>
                 <li>
                     @can('admin')
                         <a class="nav-link {{ request()->is('admin*') ? 'active fw-bold' : ' ' }}"
@@ -37,14 +43,13 @@
                             <i class="bi bi-circle"></i><span>Data Pemilih</span>
                         </a>
                     @endcan
-                </li>
-                @can('admin')
-                    <li>
-                        <a href="#">
-                            <i class="bi bi-circle"></i><span>Data Pindah</span>
+                    @can('pamong')
+                        <a class="nav-link {{ request()->is('pengguna*') ? 'active fw-bold' : ' ' }}"
+                            href="{{ route('pengguna.create') }}">
+                            <i class="bi bi-circle"></i><span>Data Pemilih</span>
                         </a>
-                    </li>
-                @endcan
+                    @endcan
+                </li>
             </ul>
         </li><!-- End Forms Nav -->
 

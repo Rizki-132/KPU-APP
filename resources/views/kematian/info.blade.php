@@ -23,6 +23,7 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Alamat</th>
                             <th scope="col">Gender</th>
+                            <th scope="col">Tanggal Kematian</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->alamat }}</td>
                                 <td>{{ $item->gender }}</td>
+                                <td>{{ $item->tgl_kematian }}</td>
                                 <td>
                                     <form method="POST" id="formDelete"
                                         action="{{ route('kematian.destroy', $item->id) }}">
@@ -49,7 +51,8 @@
                                             title="Hapus Alamat">
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
-                                        <a class="btn btn-warning btn-sm" title="Ubah Alamat" href="#">
+                                        <a class="btn btn-warning btn-sm" title="Ubah Alamat"
+                                            href="{{ route('kematian.edit', $item->id) }}">
                                             <i class="bi bi-pencil-square"></i>
                                         </a>
                                     </form>

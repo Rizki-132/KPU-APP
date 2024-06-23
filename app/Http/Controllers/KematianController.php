@@ -91,7 +91,8 @@ class KematianController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Kematian::find($id);
+        return view('kematian.edit',compact('data'));
     }
 
     /**
@@ -103,7 +104,43 @@ class KematianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            //Menginput Data Untuk Di ubah
+            $data = $request->validate(
+            [
+                'name' => 'required|string',
+                'alamat' => 'required|string',
+                'gender' => 'required|string',
+                'tgl_kematian' => 'required|date',
+                'dokumen' => 'nullable|mimes:pdf|max:2048',
+            ],
+            [
+                'name' => 'Masukan Nama',
+                'alamat' => 'Masukan Alamat',
+                'gender' => 'Masukan Jenis Kelamin',
+                'tgl_kematian' => 'Masukan Tanggal Kematian',
+                'dokumen' => 'harus di isi max 2MB',
+
+            ]);
+
+            //upload dokumen baru yang mau di ubah
+            if ($request->hasFile('dokumen')) {
+                //menghapus dokumen lama
+                if($request->dokumen){
+                    Storage::delete($request->dokumen);
+                }
+                $dokumen = $request->file('dokumen');
+                $data['dokumen'] = $dokumen->store('user/dokumen', 'public'); // Simpan foto dalam folder 'photos' di disk 'public'
+
+                // $data->foto = $photos;
+            }
+            // dd($data);
+            Kematian::create($data);
+            return redirect()->route('kematian.index')->with('success','Data Berhasil Di Kirim');
+        }catch (\Throwable $th){
+            return redirect()->route('kematian.create')->with('error','Gagal Mengirim Data');
+
+        }
     }
 
     /**
